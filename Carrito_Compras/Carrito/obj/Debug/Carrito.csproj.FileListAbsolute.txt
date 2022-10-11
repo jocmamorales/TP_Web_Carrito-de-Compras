@@ -116,3 +116,13 @@ C:\Users\josem\Source\Repos\jocmamorales\TP_Web_Carrito-de-Compras_Rangogni_Mora
 C:\Users\josem\Source\Repos\jocmamorales\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.csproj.CopyComplete
 C:\Users\josem\Source\Repos\jocmamorales\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.dll
 C:\Users\josem\Source\Repos\jocmamorales\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.pdb
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\bin\Carrito.dll.config
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\bin\Carrito.dll
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\bin\Carrito.pdb
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.csproj.AssemblyReference.cache
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.csproj.CoreCompileInputs.cache
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.csproj.CopyComplete
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.dll
+C:\Users\josem\Source\Repos\TP_Web_Carrito-de-Compras_Rangogni_Morales\Carrito_Compras\Carrito\obj\Debug\Carrito.pdb
