@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carrito", "Carrito\Carrito.csproj", "{0733C6FD-3037-4784-9826-6AEAE8890792}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesoDataBase", "AccesoDataBase\AccesoDataBase.csproj", "{24EC2014-9DE1-4B72-BF6B-96A7F228C5C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0733C6FD-3037-4784-9826-6AEAE8890792}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0733C6FD-3037-4784-9826-6AEAE8890792}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0733C6FD-3037-4784-9826-6AEAE8890792}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24EC2014-9DE1-4B72-BF6B-96A7F228C5C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24EC2014-9DE1-4B72-BF6B-96A7F228C5C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24EC2014-9DE1-4B72-BF6B-96A7F228C5C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24EC2014-9DE1-4B72-BF6B-96A7F228C5C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
