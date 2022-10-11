@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Carrito_Compras",
+    "\\Carrito_Compras\\Carrito"
   ],
-  "SelectedNode": "\\C:\\Users\\josem\\Source\\Repos\\TP_Web_Carrito-de-Compras",
+  "SelectedNode": "\\Carrito_Compras\\Carrito\\Home.aspx",
   "PreviewInSolutionExplorer": false
 }
