@@ -43,44 +43,27 @@
         </button>
 
         <%-- CARDS --%>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
+        <div class="row row-cols-1 mt-3 row-cols-md-3 g-4">
+            <div class="col-lg-5 col-md-6 col-12">
                 <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+
+                    <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/6e48c342709b041d5509379e2a30bb08-1639485540035/Como%20hacer%20directos%20en%20twitch-main.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Título de la tarjeta</h5>
                         <p class="card-text">DESCRIPCION largo.</p>
+                         <p class="card-text">Precio $ </p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Última actualización hace 3 minutos</small>
+                       <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-warning" type="button" >Agregar al carrito</button>
+                           <button class="btn btn-info" type="button" >Ver mas detalles</button>
+                       </div>
+
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Título de la tarjeta</h5>
-                        <p class="card-text">DESCRIPCION largo.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">PIE DE CARD</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Título de la tarjeta</h5>
-                        <p class="card-text">Esta es una tarjeta más amplia con texto de apoyo a continuación como introducción natural a contenido adicional. Esta tarjeta tiene un contenido aún más largo que la primera para mostrar esa acción de igual altura.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">PIE DE CARD</small>
-                    </div>
-                </div>
-            </div>
-           
+
+
         </div>
     </div>
 </asp:Content>
