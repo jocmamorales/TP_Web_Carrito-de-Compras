@@ -89,6 +89,11 @@
     <Compile Include="Masterpage.Master.designer.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
     </Compile>
+    <Compile Include="ModelsDtos\ArticuloDTO.cs" />
+    <Compile Include="ModelsDtos\ArticuloDTONegocio.cs" />
+    <Compile Include="Models\Articulo.cs" />
+    <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Marca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,7 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AccesoDataBase\AccesoDataBase.csproj">
+      <Project>{24ec2014-9de1-4b72-bf6b-96a7f228c5c2}</Project>
+      <Name>AccesoDataBase</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
