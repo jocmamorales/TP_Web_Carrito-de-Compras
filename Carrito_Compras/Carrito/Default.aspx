@@ -43,30 +43,27 @@
         </button>
 
         <%-- CARDS --%>
-        <div class="row row-cols-1 mt-3 row-cols-md-3 g-4">
-            <div class="col-lg-5 col-md-6 col-12">
-                <div class="card h-100">
-
-                    <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/6e48c342709b041d5509379e2a30bb08-1639485540035/Como%20hacer%20directos%20en%20twitch-main.jpg" class="card-img-top" alt="...">
+        <asp:Repeater runat="server" ID="repRepetidor">
+            <ItemTemplate>
+                <div class="col"></div>
+                <div class="card">
+                    <img src="<%#Eval("ImagenUrl") %>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <asp:Label ID="LblTitulo" runat="server" Text="Titulo"></asp:Label>
-                        
-                        <h5 class="card-title">Título de la tarjeta</h5>
-                        <p class="card-text">DESCRIPCION largo.</p>
-                         <p class="card-text">Precio $ </p>
+                        <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                        <p class="card-text"><%#Eval("Descripcion")%></p>
+                        <p class="card-text"><%#Eval("Precio")%> </p>
                     </div>
                     <div class="card-footer">
-                       <div class="d-grid gap-2 col-6 mx-auto">
-                            <button class="btn btn-warning" type="button" >Agregar al carrito</button>
-                           <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" />
-                           
-                       </div>
-
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <asp:Button ID="btnDetalle" runat="server" Text="Ver detalle" />
+                            <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" />
+                        </div>
                     </div>
                 </div>
-            </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
 
-
-        </div>
     </div>
+   
 </asp:Content>

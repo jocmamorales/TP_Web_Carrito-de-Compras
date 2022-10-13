@@ -11,17 +11,17 @@ namespace Carrito
 {
     public partial class Default : System.Web.UI.Page
     {
-        private List<ArticuloDTO> articuloDTOs;
+        public List<ArticuloDTO> articuloDTOs { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
             articuloDTOs = articuloDTONegocio.ListarArticulosDTO();
+            
+            repRepetidor.DataSource=articuloDTOs;
+            repRepetidor.DataBind();
 
         }
-        private void CargarCards()
-        {
-           
-        }
+       
     }
 
 
