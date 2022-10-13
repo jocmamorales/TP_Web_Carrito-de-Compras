@@ -3,6 +3,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="grdCarrito" runat="server"></asp:GridView>
-    <h1>PAGINA ROBER</h1>
+    <asp:GridView ID="grdCarrito" runat="server" CssClass="table"></asp:GridView>
+    <label id="lblTotal" runat="server" CssClass="display-3" >PAGINA ROBER</label>
 </asp:Content>
