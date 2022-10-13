@@ -49,6 +49,8 @@
 
                     <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/6e48c342709b041d5509379e2a30bb08-1639485540035/Como%20hacer%20directos%20en%20twitch-main.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
+                        <asp:Label ID="LblTitulo" runat="server" Text="Titulo"></asp:Label>
+                        
                         <h5 class="card-title">Título de la tarjeta</h5>
                         <p class="card-text">DESCRIPCION largo.</p>
                          <p class="card-text">Precio $ </p>
@@ -56,7 +58,8 @@
                     <div class="card-footer">
                        <div class="d-grid gap-2 col-6 mx-auto">
                             <button class="btn btn-warning" type="button" >Agregar al carrito</button>
-                           <button class="btn btn-info" type="button" >Ver mas detalles</button>
+                           <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" />
+                           
                        </div>
 
                     </div>

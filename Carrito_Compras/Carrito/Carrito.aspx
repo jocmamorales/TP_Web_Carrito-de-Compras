@@ -4,4 +4,5 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:GridView ID="grdCarrito" runat="server"></asp:GridView>
+    <h1>PAGINA ROBER</h1>
 </asp:Content>
