@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="ModelsDtos\ArticuloDTO.cs" />
     <Compile Include="ModelsDtos\ArticuloDTONegocio.cs" />
+    <Compile Include="ModelsDtos\ModeloCarritoDTO.cs" />
     <Compile Include="Models\Articulo.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Marca.cs" />
