@@ -18,6 +18,17 @@ namespace Carrito
             articuloDTOs = articuloDTONegocio.ListarArticulosDTO();
             grdCarrito.DataSource = articuloDTOs;
             grdCarrito.DataBind();
+            lblImporte.Text = CalcularTotalCarrito();
+        }
+
+        private string CalcularTotalCarrito()
+        {
+            decimal total = 0;
+            if (grdCarrito.Rows.Count == 0)
+                return "";
+            foreach (GridViewRow gridViewRow in grdCarrito.Rows)
+                total += decimal.Parse(gridViewRow.Cells[9].Text);
+            return total.ToString();
         }
     }
 }
