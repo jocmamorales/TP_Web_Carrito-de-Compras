@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -38,7 +39,21 @@ namespace Carrito
                 Page.Session.Remove("ArtsTemp");
             }
             ArtsDTOsTemp.Add(articuloDTO);            
-            Page.Session.Add("ArtsTemp", ArtsDTOsTemp);
+            Page.Session.Add("ArtsTemp", ArtsDTOsTemp); 
+            LblCantidad.Text= ArtsDTOsTemp.Count.ToString();
+            LblVacio.Text = "";
+        }
+
+        protected void btncarrito_Click(object sender, EventArgs e)
+        { int cant = 0;
+            if(!LblCantidad.Text.Trim().Equals(""))
+            { cant = int.Parse(LblCantidad.Text); }
+            if (cant > 0) 
+            Response.Redirect("Carrito.aspx", false);
+            else
+            {
+                LblVacio.Text = "Carrito Vacio";
+            }
         }
     }
 

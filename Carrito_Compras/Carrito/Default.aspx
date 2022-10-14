@@ -1,8 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masterpage.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Carrito.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <asp:Label ID="LblCantidad" runat="server" Text="" ></asp:Label>
+                    
+    <asp:Button ID="btncarrito" Text="Carrito" runat="server" OnClick="btncarrito_Click" />
+    <asp:Label ID="LblVacio" runat="server" Text="" ></asp:Label>
     <%-- CARRUSEL --%>
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
