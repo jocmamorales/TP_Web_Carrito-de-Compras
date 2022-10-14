@@ -56,7 +56,7 @@
                     <div class="card-footer">
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <asp:Button ID="btnDetalle" runat="server" Text="Ver detalle" />
-                            <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("id") %>' CommandName="artId"/>
+                            <asp:Button ID="btnAgregar"  runat="server" Text="Agregar al carrito" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("id") %>' CommandName="artId"/>
                         </div>
                     </div>
                 </div>

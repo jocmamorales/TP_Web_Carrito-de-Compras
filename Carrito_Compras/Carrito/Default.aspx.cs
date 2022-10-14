@@ -11,24 +11,34 @@ namespace Carrito
 {
     public partial class Default : System.Web.UI.Page
     {
-        public List<ArticuloDTO> articuloDTOs { get; set; }
-        public List<ArticuloDTO> ArtDTOsTemporal { get; set; }
+        public List<ArticuloDTO> ArticulosDTOs { get; set; }
+        public List<ArticuloDTO> ArtsDTOsTemp { get; set; }
         protected void Page_Load(object sender, EventArgs e)
-        {
-            ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
-            articuloDTOs = articuloDTONegocio.ListarArticulosDTO();
+        {            
             if (!IsPostBack)
             {
-                repRepetidor.DataSource = articuloDTOs;
+                ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
+                ArticulosDTOs = articuloDTONegocio.ListarArticulosDTO();
+                repRepetidor.DataSource = ArticulosDTOs;
                 repRepetidor.DataBind();
+                Session.Add("Articulos", ArticulosDTOs);
             }            
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             int idArt = int.Parse(((Button)sender).CommandArgument);
-            ArticuloDTO articuloDTO = articuloDTOs.Find(x => x.Id.Equals(idArt));
-            ArtDTOsTemporal.Add(articuloDTO);
+            ArticulosDTOs = (List<ArticuloDTO>)Page.Session["Articulos"];
+            ArticuloDTO articuloDTO = ArticulosDTOs.Find(x => x.Id.Equals(idArt));
+            if (ArtsDTOsTemp == null)
+                ArtsDTOsTemp = new List<ArticuloDTO>();
+            if (Page.Session["ArtsTemp"] != null)
+            {                
+                ArtsDTOsTemp = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
+                Page.Session.Remove("ArtsTemp");
+            }
+            ArtsDTOsTemp.Add(articuloDTO);            
+            Page.Session.Add("ArtsTemp", ArtsDTOsTemp);
         }
     }
 
