@@ -11,14 +11,17 @@ namespace Carrito
 {
     public partial class Carrito : System.Web.UI.Page
     {
-        public List<ArticuloDTO> articuloDTOs { get; set; }
+        public List<ArticuloDTO> artsDTOsCarrito { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
-            articuloDTOs = articuloDTONegocio.ListarArticulosDTO();
-            grdCarrito.DataSource = articuloDTOs;
+            
+            if (Page.Session["ArtsTemp"] == null)
+                return;
+            artsDTOsCarrito = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
+            grdCarrito.DataSource = artsDTOsCarrito;
             grdCarrito.DataBind();
             lblImporte.Text = CalcularTotalCarrito();
+            
         }
 
         private string CalcularTotalCarrito()
