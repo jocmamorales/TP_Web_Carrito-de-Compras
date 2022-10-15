@@ -40,14 +40,14 @@ namespace Carrito
             }
             ArtsDTOsTemp.Add(articuloDTO);            
             Page.Session.Add("ArtsTemp", ArtsDTOsTemp); 
-            LblCantidad.Text= ArtsDTOsTemp.Count.ToString();
+            TxtBoxCantidad.Text= ArtsDTOsTemp.Count.ToString();
             LblVacio.Text = "";
         }
 
         protected void btncarrito_Click(object sender, EventArgs e)
         { int cant = 0;
-            if(!LblCantidad.Text.Trim().Equals(""))
-            { cant = int.Parse(LblCantidad.Text); }
+            if(!TxtBoxCantidad.Text.Trim().Equals(""))
+            { cant = int.Parse(TxtBoxCantidad.Text); }
             if (cant > 0) 
             Response.Redirect("Carrito.aspx", false);
             else

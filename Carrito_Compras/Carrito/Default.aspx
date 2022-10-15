@@ -4,15 +4,23 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <div class="d-grid gap-10 col-12 mx-auto">
-        <asp:Label ID="LblCantidad" runat="server" Text=""></asp:Label>
-        <asp:ImageButton ID="btncarrito" Text="Carrito" runat="server" OnClick="btncarrito_Click" CssClass="btn btn-danger" BorderColor="Black"  ImageUrl="https://cdn-icons-png.flaticon.com/512/107/107831.png?w=740&t=st=1665782017~exp=1665782617~hmac=95808e2329e630a6ba9074a08d0e67d284da4975037a7d5e51dd48611f5c47fa" Width="50" Height="50"/>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                   <div class="col-md-2 col-md-offset-5">
+                    <div class="card">
+                        <div class="card-body d-flex justify-content-between align-items-left">
+                            <asp:ImageButton ID="btncarrito" Text="Carrito" runat="server" OnClick="btncarrito_Click" CssClass="btn btn-danger" BorderColor="Black" ImageUrl="https://cdn-icons-png.flaticon.com/512/107/107831.png?w=740&t=st=1665782017~exp=1665782617~hmac=95808e2329e630a6ba9074a08d0e67d284da4975037a7d5e51dd48611f5c47fa" Width="45" Height="35" />
+                            <asp:TextBox ID="TxtBoxCantidad" runat="server" Text="" ReadOnly="true" Width="45" Height="35"></asp:TextBox>
+                            <asp:Label ID="LblVacio" runat="server" Text=""></asp:Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-            <asp:Label ID="LblVacio" runat="server" Text=""></asp:Label>
     </div>
     <%-- CARRUSEL --%>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -51,11 +59,10 @@
         </button>
 
         <%-- CARDS --%>
-        <asp:Repeater runat="server" ID="repRepetidor">            
+        <asp:Repeater runat="server" ID="repRepetidor">
             <ItemTemplate>
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card">
+               <div class="card-body d-flex justify-content-between align-items-center">
+                         <div class="card">
                             <img src="<%#Eval("ImagenUrl") %>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><%#Eval("Nombre") %></h5>
