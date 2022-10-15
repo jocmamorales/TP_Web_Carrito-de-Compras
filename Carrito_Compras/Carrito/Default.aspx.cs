@@ -15,7 +15,7 @@ namespace Carrito
         public List<ArticuloDTO> ArticulosDTOs { get; set; }
         public List<ArticuloDTO> ArtsDTOsTemp { get; set; }
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             if (!IsPostBack)
             {
                 ArticuloDTONegocio articuloDTONegocio = new ArticuloDTONegocio();
@@ -23,7 +23,9 @@ namespace Carrito
                 repRepetidor.DataSource = ArticulosDTOs;
                 repRepetidor.DataBind();
                 Session.Add("Articulos", ArticulosDTOs);
-            }            
+                CantidadCarrito();
+            }
+           
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -34,26 +36,35 @@ namespace Carrito
             if (ArtsDTOsTemp == null)
                 ArtsDTOsTemp = new List<ArticuloDTO>();
             if (Page.Session["ArtsTemp"] != null)
-            {                
+            {
                 ArtsDTOsTemp = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
                 Page.Session.Remove("ArtsTemp");
             }
-            ArtsDTOsTemp.Add(articuloDTO);            
-            Page.Session.Add("ArtsTemp", ArtsDTOsTemp); 
-            TxtBoxCantidad.Text= ArtsDTOsTemp.Count.ToString();
+            ArtsDTOsTemp.Add(articuloDTO);
+            Page.Session.Add("ArtsTemp", ArtsDTOsTemp);
+            CantidadCarrito();
             LblVacio.Text = "";
         }
 
-        protected void btncarrito_Click(object sender, EventArgs e)
-        { int cant = 0;
-            if(!TxtBoxCantidad.Text.Trim().Equals(""))
-            { cant = int.Parse(TxtBoxCantidad.Text); }
-            if (cant > 0) 
-            Response.Redirect("Carrito.aspx", false);
+        private void CantidadCarrito()
+        {
+            if (Page.Session["ArtsTemp"] != null)
+                ArtsDTOsTemp = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
+            if (ArtsDTOsTemp != null)
+                TxtBoxCantidad.Text = ArtsDTOsTemp.Count.ToString();
             else
-            {
+                TxtBoxCantidad.Text = "0";
+        }
+
+        protected void btncarrito_Click(object sender, EventArgs e)
+        {
+            int cant = 0;
+            if (!TxtBoxCantidad.Text.Trim().Equals(""))
+                cant = int.Parse(TxtBoxCantidad.Text); 
+            if (cant > 0)
+                Response.Redirect("Carrito.aspx", false);
+            else
                 LblVacio.Text = "Carrito Vacio";
-            }
         }
     }
 
