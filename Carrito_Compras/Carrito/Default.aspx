@@ -49,35 +49,41 @@
                 </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
     </div>
-    <br />
     <%-- CARDS --%>
-           <div class="row row-cols-1 row-cols-md-5 g-6">
-
-    <asp:Repeater runat="server" ID="repRepetidor">
-
-        <ItemTemplate>
-           
-     
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <asp:Repeater runat="server" ID="repRepetidor">
+            <ItemTemplate>
                 <div class="col">
-                    <div class="card">
-
-                        <img src="<%#Eval("ImagenUrl") %>" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title"><%#Eval("Nombre") %></h5>
-                            <p class="card-text"><%#Eval("Descripcion")%></p>
-                            <p class="card-text"><%#Eval("Precio")%> </p>
-                        </div>
-
-                        <div class="card-footer">
-                            <div class="d-grid gap-2 col-6 mx-auto">
-                                <asp:Button ID="btnDetalle" runat="server" Text="Ver detalle" />
-                                <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("id") %>' CommandName="artId" />
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="card" style="width: 75%">
+                            <img src="<%#Eval("ImagenUrl") %>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                                <p class="card-text"><%#Eval("Descripcion")%></p>
+                                <p class="card-text"><%#Eval("Precio")%> </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                    <asp:Button ID="btnDetalle" runat="server" Text="Ver detalle" />
+                                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" OnClick="btnAgregar_Click" CommandArgument='<%#Eval("id") %>' CommandName="artId" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        </ItemTemplate>
-    </asp:Repeater>
-               </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+
+
+
 </asp:Content>

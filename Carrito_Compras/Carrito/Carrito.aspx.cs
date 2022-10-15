@@ -27,6 +27,17 @@ namespace Carrito
             lblImporte.Text = CalcularTotalCarrito();            
         }
 
+        protected void BtnCerrar_OnClick(object sender, EventArgs e)
+        {
+            if (Page.Session["ArtsTemp"] != null)
+            {
+                grdCarrito.DataSource = null;
+                grdCarrito.DataBind();
+                Page.Session.Remove("ArtsTemp");
+                lblImporte.Text = CalcularTotalCarrito();
+            }
+        }
+
         private void FormatoCabeceraGrilla()
         {
             grdCarrito.HeaderRow.Cells[3].HorizontalAlign = HorizontalAlign.Right;
@@ -70,6 +81,11 @@ namespace Carrito
                 gridViewRow.Cells[4].HorizontalAlign = HorizontalAlign.Right;
             }
             return total.ToString();
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx", false);
         }
     }
 }
