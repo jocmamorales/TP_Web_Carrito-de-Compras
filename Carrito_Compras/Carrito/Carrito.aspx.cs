@@ -19,8 +19,20 @@ namespace Carrito
                 return;
             artsDTOsCarrito = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
             grdCarrito.DataSource = productosCarrito(artsDTOsCarrito);
+            grdCarrito.AutoGenerateColumns = true;
             grdCarrito.DataBind();
+
+            FormatoCabeceraGrilla();
+
             lblImporte.Text = CalcularTotalCarrito();            
+        }
+
+        private void FormatoCabeceraGrilla()
+        {
+            grdCarrito.HeaderRow.Cells[3].HorizontalAlign = HorizontalAlign.Right;
+            grdCarrito.HeaderRow.Cells[4].HorizontalAlign = HorizontalAlign.Right;
+            grdCarrito.HeaderRow.Cells[3].Text = "Precio Unitario";
+            grdCarrito.HeaderRow.Cells[4].Text = "Precio Total"; 
         }
 
         private List<ModeloCarritoDTO> productosCarrito(List<ArticuloDTO> artsDtos)
@@ -37,7 +49,8 @@ namespace Carrito
                     Nombre = prodCarrito.Nombre,
                     Id =  prodCarrito.Id,
                     Precio = prodCarrito.Precio,
-                    Cantidad = prodCarrito.Cantidad
+                    Cantidad = prodCarrito.Cantidad,
+                    Importe = (prodCarrito.Precio * prodCarrito.Cantidad)
                 };
                 modelosCarrito.Add(modeloCarrito);
             }
@@ -51,7 +64,11 @@ namespace Carrito
                 return "";
 
             foreach (GridViewRow gridViewRow in grdCarrito.Rows)
-                total += decimal.Parse(gridViewRow.Cells[3].Text);
+            {
+                total += decimal.Parse(gridViewRow.Cells[4].Text);
+                gridViewRow.Cells[3].HorizontalAlign = HorizontalAlign.Right;
+                gridViewRow.Cells[4].HorizontalAlign = HorizontalAlign.Right;
+            }
             return total.ToString();
         }
     }
