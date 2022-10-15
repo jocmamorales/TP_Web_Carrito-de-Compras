@@ -71,7 +71,14 @@ namespace Carrito
         protected void BtnFiltro_Click(object sender, EventArgs e)
         {
             if (TxtFiltro.Text.Trim().Equals(""))
-                return;
+            {
+                ArticulosDTOs = (List<ArticuloDTO>)Page.Session["Articulos"];
+                repRepetidor.DataSource = ArticulosDTOs;
+                repRepetidor.DataBind();
+                Session.Add("Articulos", ArticulosDTOs);
+                CantidadCarrito();
+            }
+                
             ArticulosDTOs = (List<ArticuloDTO>)Page.Session["Articulos"];
             List<ArticuloDTO> artDTO = ArticulosDTOs.FindAll(x => x.Nombre.ToUpper().Contains(TxtFiltro.Text.ToUpper()) || x.Descripcion.ToUpper().Contains(TxtFiltro.Text.ToUpper()));
             repRepetidor.DataSource = artDTO;
