@@ -4,21 +4,25 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2 col-md-offset-5">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-rigth">
-                            <asp:ImageButton ID="btncarrito" Text="Carrito" runat="server" OnClick="btncarrito_Click" CssClass="btn btn-danger" BorderColor="Black" ImageUrl="https://cdn-icons-png.flaticon.com/512/107/107831.png?w=740&t=st=1665782017~exp=1665782617~hmac=95808e2329e630a6ba9074a08d0e67d284da4975037a7d5e51dd48611f5c47fa" Width="45" Height="35" />
-                            <asp:TextBox ID="TxtBoxCantidad" runat="server" Text="" ReadOnly="true" Width="45" Height="35"></asp:TextBox>
-                            <asp:Label ID="LblVacio" runat="server" Text=""></asp:Label>
-                        </div>
-                    </div>
-                </div>
+ 
+    <div class="car bg-dark text-white">
+        <div class="row">
+            <div class="col">
+                colum
+            </div>
+            <div class="col">
+                <asp:TextBox ID="TxtFiltro" runat="server"></asp:TextBox>
+                <asp:Button ID="BtnFiltro" runat="server" OnClick="BtnFiltro_Click" Text="Buscar" />
+            </div>
+
+            <div class="col">
+                <asp:ImageButton ID="btncarrito" Text="Carrito" runat="server" OnClick="btncarrito_Click" CssClass="btn btn-danger" BorderColor="Black" ImageUrl="https://cdn-icons-png.flaticon.com/512/107/107831.png?w=740&t=st=1665782017~exp=1665782617~hmac=95808e2329e630a6ba9074a08d0e67d284da4975037a7d5e51dd48611f5c47fa" Width="45" Height="35" />
+                <asp:TextBox ID="TxtBoxCantidad" runat="server" Text="" ReadOnly="true" Width="45" Height="35"></asp:TextBox>
+                <asp:Label ID="LblVacio" runat="server" Text=""></asp:Label>
             </div>
         </div>
     </div>
+
     <%-- CARRUSEL --%>
     <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">

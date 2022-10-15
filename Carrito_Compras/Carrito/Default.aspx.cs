@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
 
 namespace Carrito
 {
@@ -65,6 +66,18 @@ namespace Carrito
                 Response.Redirect("Carrito.aspx", false);
             else
                 LblVacio.Text = "Carrito Vacio";
+        }
+
+        protected void BtnFiltro_Click(object sender, EventArgs e)
+        {
+            if (TxtFiltro.Text.Trim().Equals(""))
+                return;
+            ArticulosDTOs = (List<ArticuloDTO>)Page.Session["Articulos"];
+            List<ArticuloDTO> artDTO = ArticulosDTOs.FindAll(x => x.Nombre.ToUpper().Contains(TxtFiltro.Text.ToUpper()) || x.Descripcion.ToUpper().Contains(TxtFiltro.Text.ToUpper()));
+            repRepetidor.DataSource = artDTO;
+            repRepetidor.DataBind();
+            
+
         }
     }
 
