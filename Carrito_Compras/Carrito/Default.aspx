@@ -7,7 +7,7 @@
     <div class="row">
         <div class="container">
             <div class="row">
-                   <div class="col-md-2 col-md-offset-5">
+                <div class="col-md-2 col-md-offset-5">
                     <div class="card">
                         <div class="card-body d-flex justify-content-between align-items-left">
                             <asp:ImageButton ID="btncarrito" Text="Carrito" runat="server" OnClick="btncarrito_Click" CssClass="btn btn-danger" BorderColor="Black" ImageUrl="https://cdn-icons-png.flaticon.com/512/107/107831.png?w=740&t=st=1665782017~exp=1665782617~hmac=95808e2329e630a6ba9074a08d0e67d284da4975037a7d5e51dd48611f5c47fa" Width="45" Height="35" />
@@ -57,12 +57,14 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Siguiente</span>
         </button>
-
-        <%-- CARDS --%>
+    </div>
+    <%-- CARDS --%>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         <asp:Repeater runat="server" ID="repRepetidor">
             <ItemTemplate>
-               <div class="card-body d-flex justify-content-between align-items-center">
-                         <div class="card">
+                <div class="col">
+                    <div class="card-body d-flex justify-content-between align-items-center">
+                        <div class="card" style="width: 75%">
                             <img src="<%#Eval("ImagenUrl") %>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><%#Eval("Nombre") %></h5>
@@ -77,9 +79,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </ItemTemplate>
         </asp:Repeater>
-
     </div>
+
+
 
 </asp:Content>
