@@ -12,7 +12,7 @@
         </div>
         <div style="overflow-x: auto;">
             <asp:GridView ID="grdCarrito" runat="server" DataKeyNames="Id" OnRowCommand="grdCarrito_RowCommand"
-                CssClass="table table-success table-striped table-responsive">
+                CssClass="table table-success table-striped table-responsive" style="margin-bottom: 0px;" >
                 <Columns>
                     <asp:ButtonField ButtonType="Button" HeaderText="Eliminar" Text="Eliminar" CommandName="artId" />
                 </Columns>
