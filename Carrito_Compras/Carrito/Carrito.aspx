@@ -5,24 +5,32 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-lg">
-        <asp:GridView ID="grdCarrito" runat="server" DataKeyNames="Id" OnRowCommand="grdCarrito_RowCommand" CssClass="table table-success table-striped table-responsive">
-            <Columns>
-                <asp:ButtonField ButtonType="Button" HeaderText="Eliminar" Text="Eliminar" CommandName="artId" />
-            </Columns>
-        </asp:GridView>
-        <div class="container-lg">
-            <div class="row g-3">
-                <div class="col-md">
+        <div class="mt-4 p-4 bg-primary text-white rounded">
+            <h3>
+                Productos del carrito de compras
+            </h3>
+        </div>
+        <div style="overflow-x: auto;">
+            <asp:GridView ID="grdCarrito" runat="server" DataKeyNames="Id" OnRowCommand="grdCarrito_RowCommand"
+                CssClass="table table-success table-striped table-responsive">
+                <Columns>
+                    <asp:ButtonField ButtonType="Button" HeaderText="Eliminar" Text="Eliminar" CommandName="artId" />
+                </Columns>
+            </asp:GridView>
+        </div>
+        <div class="mt-1 p-4 bg-primary text-white rounded">
+            <div class="row">
+                <div class="col-3">
                     <asp:Button runat="server" ID="btnVolver" Text="Volver"
                         CssClass="btn btn-primary" OnClick="btnVolver_Click" />
                 </div>
-                <div class="col-md">
+                <div class="col-6">
                     <div class="form-floating">
-                        <asp:Label ID="lblTotal" runat="server" CssClass="display-5">Total: $</asp:Label>
-                        <asp:Label ID="lblImporte" runat="server" CssClass="display-5"></asp:Label>
+                        <asp:Label ID="lblTotal" runat="server" CssClass="display-6">Total: $</asp:Label>
+                        <asp:Label ID="lblImporte" runat="server" CssClass="display-6"></asp:Label>
                     </div>
                 </div>
-                <div class="col-md">
+                <div class="col-3">
                     <div class="form-floating">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">

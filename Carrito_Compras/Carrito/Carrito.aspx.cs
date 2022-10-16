@@ -40,11 +40,11 @@ namespace Carrito
         }
 
         private void FormatoCabeceraGrilla()
-        {
-            grdCarrito.HeaderRow.Cells[4].HorizontalAlign = HorizontalAlign.Right;
-            grdCarrito.HeaderRow.Cells[5].HorizontalAlign = HorizontalAlign.Right;
+        {            
             grdCarrito.HeaderRow.Cells[4].Text = "Precio Unitario";
             grdCarrito.HeaderRow.Cells[5].Text = "Precio Total";
+            grdCarrito.HeaderRow.Cells[4].HorizontalAlign = HorizontalAlign.Right;
+            grdCarrito.HeaderRow.Cells[5].HorizontalAlign = HorizontalAlign.Right;
         }
 
         private List<ModeloCarritoDTO> productosCarrito(List<ArticuloDTO> artsDtos)
