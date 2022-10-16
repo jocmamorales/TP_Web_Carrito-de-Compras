@@ -26,7 +26,8 @@ Para los productos ya cuentan con las clases correspondientes. Para el carrito d
 ##RESOLUCION
 
 ##PAGINA PRINCIPAL
-![Principal](https://user-images.githubusercontent.com/84431245/196056251-6f0b9160-03ee-4f07-908e-320fc61b3a75.png)
+
+![Principal](https://user-images.githubusercontent.com/84431245/196056306-66053acd-7ff8-49bc-816d-628214d20b0f.png)
 ![Pagina3](https://user-images.githubusercontent.com/84431245/196056252-77bda0df-05a1-4866-bef0-8569de21547a.png)
 
 
