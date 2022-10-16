@@ -5,7 +5,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-lg">
-        <asp:GridView ID="grdCarrito" runat="server" CssClass="table table-success table-striped table-responsive"></asp:GridView>
+        <asp:GridView ID="grdCarrito" runat="server" DataKeyNames="Id" OnRowCommand="grdCarrito_RowCommand" CssClass="table table-success table-striped table-responsive">
+            <Columns>
+                <asp:ButtonField ButtonType="Button" HeaderText="Eliminar" Text="Eliminar" CommandName="artId" />
+            </Columns>
+        </asp:GridView>
         <div class="container-lg">
             <div class="row g-3">
                 <div class="col-md">

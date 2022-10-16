@@ -14,17 +14,18 @@ namespace Carrito
     {
         public List<ArticuloDTO> artsDTOsCarrito { get; set; }
         protected void Page_Load(object sender, EventArgs e)
-        {            
-            if (Page.Session["ArtsTemp"] == null)
-                return;
-            artsDTOsCarrito = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
-            grdCarrito.DataSource = productosCarrito(artsDTOsCarrito);
-            grdCarrito.AutoGenerateColumns = true;
-            grdCarrito.DataBind();
-
-            FormatoCabeceraGrilla();
-
-            lblImporte.Text = CalcularTotalCarrito();            
+        {
+            if (!IsPostBack)
+            {
+                if (Page.Session["ArtsTemp"] == null)
+                    return;
+                artsDTOsCarrito = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
+                grdCarrito.DataSource = productosCarrito(artsDTOsCarrito);
+                grdCarrito.AutoGenerateColumns = true;
+                grdCarrito.DataBind();
+                FormatoCabeceraGrilla();
+                lblImporte.Text = CalcularTotalCarrito();
+            }
         }
 
         protected void BtnCerrar_OnClick(object sender, EventArgs e)
@@ -40,17 +41,17 @@ namespace Carrito
 
         private void FormatoCabeceraGrilla()
         {
-            grdCarrito.HeaderRow.Cells[3].HorizontalAlign = HorizontalAlign.Right;
             grdCarrito.HeaderRow.Cells[4].HorizontalAlign = HorizontalAlign.Right;
-            grdCarrito.HeaderRow.Cells[3].Text = "Precio Unitario";
-            grdCarrito.HeaderRow.Cells[4].Text = "Precio Total"; 
+            grdCarrito.HeaderRow.Cells[5].HorizontalAlign = HorizontalAlign.Right;
+            grdCarrito.HeaderRow.Cells[4].Text = "Precio Unitario";
+            grdCarrito.HeaderRow.Cells[5].Text = "Precio Total";
         }
 
         private List<ModeloCarritoDTO> productosCarrito(List<ArticuloDTO> artsDtos)
         {
             List<ModeloCarritoDTO> modelosCarrito = new List<ModeloCarritoDTO>();
 
-            var productosCarrito = artsDTOsCarrito.GroupBy(x => new {x.Id, x.Nombre, x.Precio })
+            var productosCarrito = artsDtos.GroupBy(x => new {x.Id, x.Nombre, x.Precio })
                    .Select(g => new { g.Key.Id, g.Key.Nombre, g.Key.Precio, Cantidad = g.Count() }).ToList();
 
             foreach (var prodCarrito in productosCarrito)
@@ -76,9 +77,9 @@ namespace Carrito
 
             foreach (GridViewRow gridViewRow in grdCarrito.Rows)
             {
-                total += decimal.Parse(gridViewRow.Cells[4].Text);
-                gridViewRow.Cells[3].HorizontalAlign = HorizontalAlign.Right;
+                total += decimal.Parse(gridViewRow.Cells[5].Text);
                 gridViewRow.Cells[4].HorizontalAlign = HorizontalAlign.Right;
+                gridViewRow.Cells[5].HorizontalAlign = HorizontalAlign.Right;                
             }
             return total.ToString();
         }
@@ -86,6 +87,22 @@ namespace Carrito
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx", false);
+        }
+
+        protected void grdCarrito_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (grdCarrito.Rows.Count == 0)
+                return;
+            int numIdRow = int.Parse(e.CommandArgument.ToString());
+            int idArt = int.Parse(grdCarrito.Rows[numIdRow].Cells[1].Text.ToString());
+            artsDTOsCarrito = (List<ArticuloDTO>)Page.Session["ArtsTemp"];
+            List<ArticuloDTO> artsDTO = artsDTOsCarrito.FindAll(x => !x.Id.Equals(idArt));
+            Page.Session.Remove("ArtsTemp");
+            Page.Session.Add("ArtsTemp", artsDTO); 
+            grdCarrito.DataSource = productosCarrito(artsDTO);
+            grdCarrito.DataBind();
+            FormatoCabeceraGrilla();
+            lblImporte.Text = CalcularTotalCarrito();
         }
     }
 }
